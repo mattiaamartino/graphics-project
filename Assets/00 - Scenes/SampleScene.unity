@@ -681,7 +681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MeshDeformerInput
   force: 0.3
   forceOffset: 0.00001
-  currentDeformer: 
+  currentDeformer: Push
 --- !u!4 &291874890
 Transform:
   m_ObjectHideFlags: 0
