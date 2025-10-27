@@ -30,7 +30,7 @@ Link to download: https://unity.com/download
 
 - Download Unity Hub. It's a explorer tool for your projects where you can have simultaneously different Unity builds.
 - Create an Unity account: It will be required when you launch the program. You can select the free option for personal use.
-- Choose your Unity build. For this lab, we will be using **6000.2.2f1**
+- Choose your Unity build. For this lab, we will be using **6.2** (the most recent available, the one provided by default).
 - Make sure you have a text editor installed and configured for C#. [Visual Studio Code](https://code.visualstudio.com/Download) is a popular option, but you can use any other code editor or IDE.
 - Now you should be able to open Unity. Make sure that you can successfully launch it, that your graphics drivers are working or that you do not have any particular problem.
 
