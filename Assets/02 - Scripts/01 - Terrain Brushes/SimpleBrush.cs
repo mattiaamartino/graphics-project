@@ -3,6 +3,7 @@ using UnityEngine;
 public class SimpleBrush : TerrainBrush
 {
     public float height = 5;
+    public int radius = 10; 
 
     public override void draw(int x, int z)
     {
@@ -14,5 +15,4 @@ public class SimpleBrush : TerrainBrush
             }
         }
     }
-
 }

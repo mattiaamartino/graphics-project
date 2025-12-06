@@ -301,8 +301,34 @@ public class SurvivorAgent : MonoBehaviour
     {
         if (terrain != null)
         {
-            float y = terrain.getInterp(transform.position.x, transform.position.z);
-            transform.position = new Vector3(transform.position.x, y, transform.position.z);
+            Vector3 terrainSize = terrain.terrainSize();
+            Vector3 currentPos = transform.position;
+
+            // 1. Constrain X and Z to be within valid terrain bounds
+            // We use 0 as min and terrainSize as max.
+            float clampedX = Mathf.Clamp(currentPos.x, 0.5f, terrainSize.x - 0.5f);
+            float clampedZ = Mathf.Clamp(currentPos.z, 0.5f, terrainSize.z - 0.5f);
+
+            // 2. Determine the correct Height (Y)
+            float finalY = currentPos.y;
+
+            // If it's a Land animal (Human, Predator, Prey), snap strictly to the ground
+            if (identity.type != EntityType.Fish)
+            {
+                finalY = terrain.getInterp(clampedX, clampedZ);
+            }
+            else 
+            {
+                // If it's a Fish, ensure it doesn't swim *under* the ground
+                float terrainHeight = terrain.getInterp(clampedX, clampedZ);
+                if (finalY < terrainHeight + 0.5f) 
+                {
+                    finalY = terrainHeight + 0.5f; // Push fish up if they hit the sand
+                }
+            }
+
+            // 3. Apply the constrained position
+            transform.position = new Vector3(clampedX, finalY, clampedZ);
         }
     }
 

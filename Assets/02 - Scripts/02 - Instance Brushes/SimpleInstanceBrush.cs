@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SimpleInstanceBrush : InstanceBrush {
 
+    public GameObject prefab;
+
     public override void draw(float x, float z) {
         spawnObject(x, z);
         spawnObject(x - radius, z - radius);
